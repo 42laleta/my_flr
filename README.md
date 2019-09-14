@@ -1,6 +1,7 @@
 # FILLER
 
 make
+
 rm mypipe.*; mkfifo mypipe.map && mkfifo mypipe.cmd && mkfifo mypipe.adp && mkfifo mypipe.vm; chmod 777 mypipe.*
 
 `bot vs bot`
