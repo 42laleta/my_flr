@@ -66,7 +66,7 @@ example: ./run.sh -i ./visualizer/resources/img/mario1.jpg
 - `[S]`		  - sound
 - `[<] [>]` - fast/slow (bot vs bot)
 
-### Authors 
+### 🔸Authors 
 
 - bot				- [Phill](https://github.com/PhilippNox)
 - visualizer 		- me
