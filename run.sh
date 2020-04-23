@@ -5,6 +5,8 @@ mkfifo mypipe.map && mkfifo mypipe.cmd && mkfifo mypipe.adp && mkfifo mypipe.vm
 
 MAP=./maps/map01
 BOT=./bot/build/squid.filler
+IMG1=./visualizer/resources/img/mario1.jpg
+IMG2=./visualizer/resources/img/pacman1.jpg
 
 wait_pseudoterminal() {
   while [ ! -f "tmp_pty" ]
@@ -23,19 +25,23 @@ control_msg() {
 print_usage() {
   printf "Usage:\tyou can simple run ./run.sh\n"
   printf "\t-b \t: to set bot. Example: -t ./bot/build/squid.filler\n"
-  printf "\t-m \t: to set bot. Example: -m ./resources/maps/map01\n"
+  printf "\t-m \t: to set bot. Example: -m ./maps/map01\n"
+  printf "\t-i \t: to set img1. Example: -i ./visualizer/resources/img/mario1.jpg\n"
+  printf "\t-j \t: to set img2. Example: -j ./visualizer/resources/img/pacman1.jpg\n"
   exit 1
 }
 
-while getopts 'f:m:' opts; do
+while getopts 'b:m:i:j:' opts; do
   case "${opts}" in
-    f) BOT=${OPTARG} ;;
-    f) MAP=${OPTARG} ;;
+    b) BOT=${OPTARG} ;;
+    m) MAP=${OPTARG} ;;
+	i) IMG1=${OPTARG} ;;
+	j) IMG2=${OPTARG} ;;
     *) print_usage ;;
   esac
 done
 
-(./filler_visu_human ) &
+(./filler_visu_human $IMG1 $IMG2) &
 PID_VISU=$!
 echo $PID_VISU
 #./74_human_adapter.filler &
