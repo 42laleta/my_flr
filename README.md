@@ -1,4 +1,4 @@
-# 🔹FILLER
+# 🔹FILLER🔹
 
 
 Filler is a game which consists in filling a board with pieces of random size and shapes, without the pieces being stacked more than one square above each other and without them exceeding the grid.
