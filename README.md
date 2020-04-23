@@ -1,14 +1,15 @@
-# 🟦  FILLER  🟨
+# 🔹FILLER
 
 
 Filler is a game which consists in filling a board with pieces of random size and shapes, without the pieces being stacked more than one square above each other and without them exceeding the grid.
+
 Each successfully placed piece yields a number of points, the goal of the game could be to get the best score possible. Each player has for the purpose of placing as many pieces as possible while attempting to prevent his opponent from doing the same.
 
 
 ![screenshot](screenshot/filler1.gif)
 
 
-## Rules
+## 🔸Rules
 
 - two players fight each other, they play one after the other
 - goal is to collect as many points as possible by placing the highest number of pieces on the the game board
@@ -16,7 +17,7 @@ Each successfully placed piece yields a number of points, the goal of the game c
 - shape must not exceed the dimensions of the board
 - game stops at the first error: either when a game piece cannot be placed anymore or it has been wrongly placed
 
-## Install
+## 🔹Install
 
 ```
 git clone https://github.com/gitEllE-if/filler_game.git filler
@@ -26,7 +27,7 @@ make
 The program was tested and run on MacOS (Mojave, HighSierra, Catalina)
 
 
-## Usage
+## 🔸Usage
 
 ```
 ./run.sh
@@ -35,37 +36,35 @@ The program was tested and run on MacOS (Mojave, HighSierra, Catalina)
 - run the game with another bot
 ```
 ./run.sh -b {path_to_another_bot}
+example: ./run.sh -b ./players/jupiter.filler
 ```
-example: `./run.sh -b ./players/jupiter.filler`
-
 - run the game with another map
 ```
 ./run.sh -m {path_to_another_map}
+example: ./run.sh -m ./maps/map01
 ```
-example: `./run.sh -m ./maps/map01`
-
 - run the game with another images
 ```
 ./run.sh -i {path_to_another_image1} -j {path_to_another_image2}
+example: ./run.sh -i ./visualizer/resources/img/mario1.jpg
 ```
-example: `./run.sh -i ./visualizer/resources/img/mario1.jpg`
-
 - it is possible to run game "bot vs bot"
 ```
 ./filler_vm -f maps/map01 -p1 players/jupiter.filler -p2 players/superjeannot.filler|./filler_visu_vm
 ```
 
-![screenshot](screenshot/filler1.gif)
+![screenshot](screenshot/filler2.gif)
 
 
-## Control
+## 🔹Control
 
-`[arrows]`	- move
-`[SPACE]`	- set
-`[Q]`		- autoplace
-`[X]`		- autoplace once
-`[M]`		- music
-`[S]`		- sound
+- `[arrows]`  - move
+- `[SPACE]` - set
+- `[Q]`		  - autoplace
+- `[X]`		  - autoplace once
+- `[M]`		  - music
+- `[S]`		  - sound
+- `[<] [>]` - fast/slow (bot vs bot)
 
 ### Authors 
 
