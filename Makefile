@@ -1,34 +1,40 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: laleta <marvin@42.fr>                      +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/04/07 19:28:58 by laleta            #+#    #+#              #
-#    Updated: 2019/09/04 21:20:39 by laleta           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-NAME = filler_visual
-
-DIR_VISU_VM = flr_visu_vm/
-DIR_VISU_HUMAN = flr_visu_human/
+DIR_VISU = visualizer/
+DIR_BOT = bot/
+THIS_DIR := $(shell pwd) 
 
 .PHONY : all clean fclean re
 
-all : $(NAME)
+all : 
+	make create_sup_files
+	make -C $(DIR_BOT)
+	make -C $(DIR_VISU)
 
-$(NAME) :
-	make -C $(DIR_VISU_VM)
-	make -C $(DIR_VISU_HUMAN)
+create_sup_files:
+	@echo "#!/bin/bash\ncd" $(THIS_DIR) \
+	"\n#lldb -o run ./bot/build/74_human_adapter.filler \
+	\n./bot/build/74_human_adapter.filler" \
+	> r_adapter.command
+	@chmod +x r_adapter.command
+	@echo "#!/bin/bash\ncd" $(THIS_DIR) \
+	"\n./bot/build/72_human_controller.filler" \
+	> r_controller.command
+	@chmod +x r_controller.command
+	@echo "#!/bin/bash\ncd" $(THIS_DIR) \
+	"\n./bot/build/71_human_view.filler" \
+	> r_view.command
+	@chmod +x r_view.command
+
+del_sup_files:
+	rm -f r_adapter.command r_controller.command r_view.command
+	rm -f filler.trace
 
 clean :
-	@make -C $(DIR_VISU_VM) clean
-	@make -C $(DIR_VISU_HUMAN) clean
+	@make -C $(DIR_BOT) clean
+	@make -C $(DIR_VISU) clean
 
 fclean : clean
-	@make -C $(DIR_VISU_VM) fclean
-	@make -C $(DIR_VISU_HUMAN) fclean
+	@make -C $(DIR_BOT) fclean
+	@make -C $(DIR_VISU) fclean
+	@make del_sup_files
 
 re : fclean all

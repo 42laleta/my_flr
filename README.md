@@ -1,15 +1,20 @@
 # FILLER
 
-make
-
-rm mypipe.\*; mkfifo mypipe.map && mkfifo mypipe.cmd && mkfifo mypipe.adp && mkfifo mypipe.vm; chmod 777 mypipe.*
-
-`bot vs bot`
-
-./filler_vm -f maps/map00 -p1 players/carli.filler -p2 players/hcao.filler|./filler_visu_vm
+![screenshot](screenshot/filler1.gif)
 
 
-`human vs bot`
+- bot vs bot
+```
+./filler_vm -f maps/map01 -p1 players/jupiter.filler -p2 players/superjeannot.filler|./filler_visu_vm
+```
 
-./filler_vm_human -f maps/map00 -p1 ./70_human_model.filler -p2 players/hcao.filler|./74_human_adapter.filler
-./filler_visu_human
+- human vs bot
+```
+./run.sh
+```
+
+### Authors 
+
+- bot - [Phill](https://github.com/PhilippNox)
+- visualizer - me
+- virtual_machine - Ecole42
